@@ -44,6 +44,9 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("Position not on the board");
 		}
+		if(!board.piece(position).isTherAnyPossibleMove()) {
+			throw new ChessException("Não existe moviementos possiveis para a posição d eorigem");
+		}
 	}
 	private void initialSetup() {
 		placeNewPiece('c', 1, new Rook(board, Color.WHITE));
